@@ -14,7 +14,7 @@ public class KafkaProducer {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(KafkaConsumer.class);
 
-	@Value("${kafka.topic.hsc}")
+	@Value("${kafka.topic.users}")
 	private String topic;
 	
 	@Autowired

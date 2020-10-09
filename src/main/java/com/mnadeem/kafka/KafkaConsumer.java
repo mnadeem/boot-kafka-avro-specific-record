@@ -12,7 +12,7 @@ public class KafkaConsumer {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(KafkaConsumer.class);
 
-	@KafkaListener(topics = "#{'${topic.name}'}", groupId = "simple-consumer")
+	@KafkaListener(topics = "#{'${kafka.topic.users}'}", groupId = "simple-consumer")
 	public void consume(User record) {
 		LOGGER.info(String.format("Consumed message -> %s", record));
 	}

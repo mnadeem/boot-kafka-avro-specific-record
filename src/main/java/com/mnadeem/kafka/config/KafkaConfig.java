@@ -9,7 +9,7 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaConfig {
 
-	@Value("${kafka.topic.user}")
+	@Value("${kafka.topic.users}")
 	private String userTopic;
 
 	@Bean
