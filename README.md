@@ -211,6 +211,38 @@ Console output
 2020-10-10 11:43:10.087  INFO 7204 --- [ntainer#0-0-C-1] c.mnadeem.kafka.messaging.KafkaConsumer  : Consumed message -> {"name": "Nadeem", "age": 1}
 ```
 
+## Testing Using Console
+
+Connect to Schema Registry docker container
+
+```Powershell
+E:\practices\docker\local-kafka-cluster>docker exec -it schema-registry bash
+root@schema-registry:/#
+
+```
+
+
+```Powershell
+root@schema-registry:/usr/bin# ls kafka*
+kafka-api-start  
+kafka-avro-console-consumer  
+kafka-avro-console-producer  
+kafka-json-schema-console-consumer  
+kafka-json-schema-console-producer  
+kafka-protobuf-console-consumer  
+kafka-protobuf-console-producer
+root@schema-registry:/usr/bin# 
+```
+
+
+```Powershell
+kafka-avro-console-consumer --bootstrap-server 172.18.0.3:9092,172.18.0.4:9093,172.18.0.5:9094 --property schema.registry.url=http://schema-registry:8081  --key-deserializer org.apache.kafka.common.serialization.StringDeserializer --value-deserializer io.confluent.kafka.serializers.KafkaAvroDeserializer  --property print.key=true  --from-beginning --topic users 
+```
+
+```Powershell
+  
+```
+
 # Also See
 * [Spring Integration Application Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#integration-properties)
 * [Kafka Producer Configurations](https://kafka.apache.org/documentation/#producerconfigs)
