@@ -6,7 +6,10 @@ Start the Local [Kafka Cluster](https://reachmnadeem.wordpress.com/category/clou
 
 ```Powershell
 E:\practices\docker\local-kafka-cluster>docker-compose up -d
-Starting zookeeper ... done                                                                                                                                                                 Starting broker0   ... done                                                                                                                                                                 Starting broker2   ... done                                                                                                                                                                 Starting broker1   ... done                                                                                                                                                                 Starting schema-registry ... done  
+Starting zookeeper       ... done 
+Starting broker0         ... done
+Starting broker2         ... done                                                                                                                                                               Starting broker1         ... done
+Starting schema-registry ... done  
 ```
 Cluster running
 
