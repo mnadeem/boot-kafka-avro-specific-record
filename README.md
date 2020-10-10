@@ -255,7 +255,7 @@ E:\practices\docker\local-kafka-cluster>curl http://localhost:8081/subjects/user
 * [Kafka Producer Configurations](https://kafka.apache.org/documentation/#producerconfigs)
 * [Kafka Consumer Configurations](https://kafka.apache.org/documentation/#consumerconfigs)
 * [Spring Boot Kafka](https://reflectoring.io/spring-boot-kafka/)
-
+* [Schema Registry](https://docs.confluent.io/current/schema-registry/connect.html)
 
 
 
