@@ -1,4 +1,4 @@
-package com.mnadeem.kafka;
+package com.mnadeem.kafka.messaging;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +13,7 @@ public class KafkaConsumer {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(KafkaConsumer.class);
 
-	@KafkaListener(topics = "#{'${kafka.topic.users}'}", groupId = "simple-consumer")
+	@KafkaListener(topics = "#{'${kafka.topic.users}'}", groupId = "#{'${spring.kafka.consumer.group-id}'}")
 	public void consume(User record, Acknowledgment acknowledgment) {
 		LOGGER.info(String.format("Consumed message -> %s", record));
 		acknowledgment.acknowledge();

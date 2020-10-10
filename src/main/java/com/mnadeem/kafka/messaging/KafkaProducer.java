@@ -1,4 +1,4 @@
-package com.mnadeem.kafka;
+package com.mnadeem.kafka.messaging;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +20,7 @@ public class KafkaProducer {
 	@Autowired
 	private KafkaTemplate<String, User> kafkaTemplate;
 
-	void sendMessage(User user) {
+	public void sendMessage(User user) {
 		this.kafkaTemplate.send(this.topic, user.getName().toString(), user);
 		LOGGER.info(String.format("Produced user -> %s", user));
 	}
