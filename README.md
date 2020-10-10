@@ -236,7 +236,7 @@ root@schema-registry:/usr/bin#
 
 
 ```Powershell
-kafka-avro-console-consumer --bootstrap-server 172.18.0.3:9092,172.18.0.4:9093,172.18.0.5:9094 --property schema.registry.url=http://schema-registry:8081  --key-deserializer org.apache.kafka.common.serialization.StringDeserializer --value-deserializer io.confluent.kafka.serializers.KafkaAvroDeserializer  --property print.key=true  --from-beginning --topic users 
+kafka-avro-console-consumer --bootstrap-server 172.18.0.3:9092,172.18.0.4:9093,172.18.0.5:9094 --property schema.registry.url=http://localhost:8081  --key-deserializer org.apache.kafka.common.serialization.StringDeserializer --value-deserializer io.confluent.kafka.serializers.KafkaAvroDeserializer  --property print.key=true  --max-messages 2 --from-beginning --topic users
 ```
 
 ```Powershell
