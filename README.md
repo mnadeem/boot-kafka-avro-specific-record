@@ -240,7 +240,14 @@ kafka-avro-console-consumer --bootstrap-server 172.18.0.3:9092,172.18.0.4:9093,1
 ```
 
 ```Powershell
-  
+E:\practices\docker\local-kafka-cluster>curl http://localhost:8081/subjects
+["users-value"]
+
+```
+
+```Powershell
+E:\practices\docker\local-kafka-cluster>curl http://localhost:8081/subjects/users-value/versions/latest
+{"subject":"users-value","version":1,"id":1,"schema":"{\"type\":\"record\",\"name\":\"User\",\"namespace\":\"io.confluent.developer\",\"fields\":[{\"name\":\"name\",\"type\":\"string\",\"avro.java.string\":\"String\"},{\"name\":\"age\",\"type\":\"int\"}]}"} 
 ```
 
 # Also See
