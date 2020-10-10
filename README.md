@@ -170,6 +170,38 @@ public class KafkaConsumer {
 }
 
 ```
+
+#### Consume From beginning
+
+```java
+	@KafkaListener(topicPartitions = @TopicPartition(topic = "#{'${kafka.topic.users}'}", partitionOffsets = {
+			@PartitionOffset(partition = "0", initialOffset = "0") }), groupId = "#{'${spring.kafka.consumer.group-id}'}", containerFactory = "kafkaListenerContainerFactory")
+	public void consumeFromBegining(User record, @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition, Acknowledgment acknowledgment) {
+		System.out.println(
+				" all msg Received Messasge in group 'foo': " + record + "RECEIVED_PARTITION_ID - " + partition);
+		acknowledgment.acknowledge();
+
+	}
+
+```
+
+#### Generic Record
+
+Make sure `spring.kafka.properties.specific.avro.reader=false` is set to **false** and Avro _name space_ (Default package wont work) and _name_ is same
+
+```java
+@KafkaListener(topicPartitions = @TopicPartition(topic = "#{'${kafka.topic.users}'}", partitionOffsets = {
+			@PartitionOffset(partition = "0", initialOffset = "0") }), groupId = "#{'${spring.kafka.consumer.group-id}'}", containerFactory = "kafkaListenerContainerFactory")
+	public void listenAllMsg(ConsumerRecord<String, User> record, @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition, Acknowledgment acknowledgment) {
+		
+		LOGGER.info(" Msg : {} RECEIVED_PARTITION_ID - {} ", record.value() , partition);
+
+		acknowledgment.acknowledge();
+
+	}
+
+```
+
 `BootKafkaAvroApplication` Class
 
 ```java
